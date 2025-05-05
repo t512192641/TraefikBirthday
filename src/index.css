@@ -91,3 +91,8 @@ body {
     transform: translate(0, 0) skew(5deg);
   }
 }
+
+/* Responsive styles for prose code blocks */
+.prose pre {
+  @apply whitespace-pre overflow-x-auto;
+}
