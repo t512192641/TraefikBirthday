@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BPB90QN0NN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BPB90QN0NN');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑客帝国风格 - 33岁生日快乐</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Courier Prime', monospace;
+            background-color: #000;
+            color: #00ff41;
+            overflow-x: hidden;
+        }
+        
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .glitch {
+            position: relative;
+            animation: glitch 1s linear infinite;
+        }
+        
+        @keyframes glitch {
+            2%, 64% {
+                transform: translate(2px, 0) skew(0deg);
+            }
+            4%, 60% {
+                transform: translate(-2px, 0) skew(0deg);
+            }
+            62% {
+                transform: translate(0, 0) skew(5deg);
+            }
+        }
+        
+        .glitch:before,
+        .glitch:after {
+            content: attr(title);
+            position: absolute;
+            left: 0;
+        }
+        
+        .glitch:before {
+            animation: glitchTop 1s linear infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+        }
+        
+        @keyframes glitchTop {
+            2%, 64% {
+                transform: translate(2px, -2px);
+            }
+            4%, 60% {
+                transform: translate(-2px, 2px);
+            }
+            62% {
+                transform: translate(13px, -1px) skew(-13deg);
+            }
+        }
+        
+        .glitch:after {
+            animation: glitchBottom 1.5s linear infinite;
+            clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+            -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+        }
+        
+        @keyframes glitchBottom {
+            2%, 64% {
+                transform: translate(-2px, 0);
+            }
+            4%, 60% {
+                transform: translate(-2px, 0);
+            }
+            62% {
+                transform: translate(-22px, 5px) skew(21deg);
+            }
+        }
+        
+        .typing-effect {
+            border-right: 2px solid #00ff41;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff41 }
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41, 0 0 20px #00ff41;
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41, 0 0 20px #00ff41;
+            }
+            to {
+                text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41, 0 0 40px #00ff41;
+            }
+        }
+        
+        .matrix-code {
+            font-family: monospace;
+            font-size: 14px;
+            color: #00ff41;
+        }
+        
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-rain" class="matrix-bg"></canvas>
+    
+    <header class="container mx-auto pt-12 pb-6 px-4 sm:px-6 lg:px-8 z-10">
+        <div class="text-center mt-8">
+            <h1 class="glitch text-4xl md:text-6xl font-bold mb-4" title="SYSTEM OVERRIDE">SYSTEM OVERRIDE</h1>
+            <p class="typing-effect text-lg md:text-xl mx-auto max-w-3xl">// 正在访问生日祝福协议...</p>
+        </div>
+    </header>
+    
+    <main class="container mx-auto pt-8 pb-8 px-4 sm:px-6 lg:px-8 z-10">
+        <div class="bg-black bg-opacity-70 border border-green-500 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0 md:mr-6 w-full md:w-1/2">
+                    <div class="matrix-code p-4 border border-green-500 rounded h-full overflow-hidden">
+                        <pre class="whitespace-pre-wrap">
+<span class="text-yellow-400">function</span> <span class="text-blue-400">generateBirthdayWish</span>() {
+  <span class="text-yellow-400">const</span> person = {
+    age: <span class="text-purple-400">33</span>,
+    birthDate: <span class="text-green-400">"04-30"</span>,
+    role: <span class="text-green-400">"程序员"</span>,
+    status: <span class="text-green-400">"传奇"</span>
+  };
+  
+  <span class="text-yellow-400">return</span> `
+    祝福.生成({
+      对象: ${person.role},
+      年龄: ${person.age},
+      日期: ${person.birthDate},
+      状态: ${person.status}
+    });
+  `;
+}</pre>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4 neon-text">// 生日快乐！</h2>
+                    <div class="mb-6">
+                        <p class="text-xl mb-2"><i class="fas fa-calendar-alt mr-2"></i> <span class="text-yellow-400">04月30日</span></p>
+                        <p class="text-xl mb-2"><i class="fas fa-birthday-cake mr-2"></i> <span class="text-yellow-400">33岁</span></p>
+                    </div>
+                    <p class="mb-4">在这个特殊的日子里，祝愿你的代码永远没有BUG，你的服务器永不宕机，你的算法永远O(1)复杂度！</p>
+                    <p class="mb-4">33岁，正是技术与经验完美融合的黄金年龄，愿你在代码的世界里继续创造奇迹！</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-black bg-opacity-70 border border-green-500 rounded-lg p-6 max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold mb-4 text-center"><i class="fas fa-terminal mr-2"></i> 系统消息</h3>
+            <div class="mb-4 mx-auto max-w-3xl">
+                <p class="mb-2 typing-effect-line" id="line1"></p>
+                <p class="mb-2 typing-effect-line" id="line2"></p>
+                <p class="mb-2 typing-effect-line" id="line3"></p>
+                <p class="mb-2 typing-effect-line" id="line4"></p>
+                <script>
+                // 系统消息每行内容
+                const sysMsgLines = [
+                  "// 正在分析生命数据...",
+                  "// 已确认：你已成功运行了<span class=\"text-yellow-400\">33</span>年",
+                  "// 检测到大量成就和经验值",
+                  "// 未来路径：无限可能"
+                ];
+                // 打字机效果函数，支持HTML内容
+                function typeWriterLine(element, html, cb) {
+                  let i = 0;
+                  function type() {
+                    // 找下一个HTML标签或字符
+                    if (html[i] === '<') {
+                      // 是标签，找到下一个'>'
+                      let closeIdx = html.indexOf('>', i);
+                      if (closeIdx !== -1) {
+                        element.innerHTML += html.slice(i, closeIdx + 1);
+                        i = closeIdx + 1;
+                      }
+                    } else {
+                      element.innerHTML += html[i];
+                      i++;
+                    }
+                    if (i < html.length) {
+                      setTimeout(type, Math.random() * 50 + 20);
+                    } else if (cb) {
+                      cb();
+                    }
+                  }
+                  type();
+                }
+                // 依次为每行打字机效果
+                function showSysMsgLines(idx = 0) {
+                  if (idx < sysMsgLines.length) {
+                    const el = document.getElementById('line' + (idx + 1));
+                    typeWriterLine(el, sysMsgLines[idx], function() {
+                      showSysMsgLines(idx + 1);
+                    });
+                  }
+                }
+                document.addEventListener('DOMContentLoaded', function() {
+                  showSysMsgLines();
+                });
+                </script>
+            </div>
+            <div class="text-center mt-8">
+                <p class="text-xl neon-text">祝你在代码的矩阵中继续书写传奇！</p>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <i class="fas fa-code text-3xl animate-pulse"></i>
+                    <i class="fas fa-laptop-code text-3xl animate-pulse"></i>
+                    <i class="fas fa-server text-3xl animate-pulse"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center z-10">
+        <p class="text-sm"><i class="fas fa-lock mr-1"></i> 此消息已加密 | <i class="fas fa-shield-alt mr-1"></i> 仅授权用户可见</p>
+        <p class="text-xs mt-2">// 生成于矩阵核心 | <i class="far fa-copyright mr-1"></i> 2025 </p>
+    </footer>
+
+    <!-- Matrix Rain Effect Script -->
+    <script>
+        // 初始化Matrix雨效果
+        const canvas = document.getElementById('matrix-rain');
+        const ctx = canvas.getContext('2d');
+
+        // 设置canvas尺寸为窗口大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 调整窗口大小时重设canvas尺寸
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Matrix字符
+        const matrixChars = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        // 字符大小
+        const fontSize = 14;
+
+        // 计算列数
+        const columns = Math.floor(canvas.width / fontSize);
+
+        // 每列的当前y位置
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+        }
+
+        // 绘制Matrix雨
+        function drawMatrixRain() {
+            // 半透明黑色背景，形成拖尾效果
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 设置字体和颜色
+            ctx.fillStyle = '#0f0';
+            ctx.font = `${fontSize}px monospace`;
+
+            // 绘制字符
+            for (let i = 0; i < drops.length; i++) {
+                // 随机选择一个字符
+                const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+                
+                // 绘制字符
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // 当字符到达底部或随机重置时，重置到顶部
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                // 移动字符
+                drops[i]++;
+            }
+        }
+
+        // 每50毫秒更新一次
+        setInterval(drawMatrixRain, 50);
+
+        // 模拟终端打字效果
+        document.querySelectorAll('.typing-effect').forEach(element => {
+            const text = element.textContent;
+            element.textContent = '';
+            let i = 0;
+            const typeWriter = () => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, Math.random() * 50 + 20);
+                }
+            };
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>

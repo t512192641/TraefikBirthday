@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "AI 图像生成器",
+    "description": "一个基于 Stable Diffusion 的在线工具，可以根据文本描述生成图像。",
+    "icon": "🖼️",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "title": "智能文本摘要",
+    "description": "输入长篇文章，快速生成核心内容的摘要信息。",
+    "icon": "📝", 
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "title": "代码辅助机器人",
+    "description": "集成到 IDE 中的 AI 助手，提供代码补全、解释和调试建议。",
+    "icon": "🤖", 
+    "link": "#"
+  },
+  {
+    "id": 4,
+    "title": "Birthday Card",
+    "description": "一个黑客帝国风格的交互式生日贺卡页面。",
+    "icon": "🎂",
+    "link": "/works/birthday-card"
+  }
+] 
