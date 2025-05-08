@@ -20,6 +20,7 @@
 - **CSS 框架**: Tailwind CSS
 - **图标库**: Lucide React
 - **代码检查**: ESLint
+- **数据分析**: Google Analytics
 
 ## 项目结构
 
@@ -52,6 +53,26 @@
   在本地预览生产构建的版本。
 
 ## 如何添加/编辑内容
+
+### 添加新页面
+
+1. 在 `src/pages` 目录下创建新的页面组件。
+2. 在 `App.tsx` 中添加对应的路由。
+3. **重要**: 确保在页面的 HTML 模板中包含 Google Analytics 代码：
+   ```html
+   <!-- Google tag (gtag.js) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPB90QN0NN"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'G-BPB90QN0NN');
+   </script>
+   ```
+   - GA 代码必须紧跟在 `<head>` 标签之后
+   - 每个页面只能包含一个 GA 代码
+   - 所有页面都必须包含此代码
 
 ### 添加新文章
 
@@ -129,6 +150,20 @@
 1. 导入相应的组件
 2. 提供必要的属性（props）
 3. 将组件添加到适当的页面位置
+
+## 新页面检查清单
+
+在添加新页面时，请确保完成以下检查项：
+
+1. [ ] 页面组件是否放在正确的目录（`src/pages`）
+2. [ ] 路由是否已在 `App.tsx` 中正确配置
+3. [ ] Google Analytics 代码是否已正确添加
+   - [ ] 代码是否紧跟在 `<head>` 标签之后
+   - [ ] 是否只包含一个 GA 代码
+   - [ ] GA ID 是否正确（G-BPB90QN0NN）
+4. [ ] 页面标题是否已设置
+5. [ ] Meta 标签是否已正确配置
+6. [ ] 响应式布局是否正常工作
 
 ## 后续更新
 
