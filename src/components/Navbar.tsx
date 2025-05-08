@@ -34,7 +34,7 @@ export default function Navbar() {
   const homeMobileMenuBg = 'bg-black/80 backdrop-blur-sm';
 
   // Define styles for other pages (standard theme)
-  const standardNavBg = 'bg-white shadow-md py-3';
+  const standardNavBg = 'bg-white py-3';
   const standardLinkColor = 'text-gray-600 hover:text-blue-600';
   const standardTitleColor = 'text-blue-600';
   const standardMobileMenuBg = 'bg-white';

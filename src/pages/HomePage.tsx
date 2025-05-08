@@ -12,10 +12,10 @@ function HomePage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 matrix-text">
             不知的AI冲浪录
           </h1>
-          <p className="text-lg md:text-xl mb-8 md:mb-12 matrix-text">
-            探索数字世界的边界，记录AI与人类共同进化的轨迹
+          <p className="mt-4 text-lg sm:text-xl md:text-2xl text-green-300 matrix-text">
+            一个热衷于探索AI技术边界的开发者，用代码点亮创意，构建智能应用。
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-12">
             <Link
               to="/blog"
               className="matrix-button"

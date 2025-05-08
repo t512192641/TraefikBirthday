@@ -38,23 +38,35 @@ function BlogListPage() {
           import: 'default'
         });
         
-        const loadedPosts = Object.entries(modules).map(([path, rawContent]) => {
-          const { data, content } = matter(rawContent as string);
-          const slug = data.slug || path.split('/').pop()?.replace('.md', '');
+        const posts = await Promise.all(
+          Object.entries(modules).map(async ([path, rawContent]) => {
+            const { data, content } = matter(rawContent as string);
+            const slug = data.slug || path.split('/').pop()?.replace('.md', '');
 
-          return {
-            ...data,
-            slug: slug,
-            content: content,
-            title: data.title || 'Untitled',
-            date: data.date || 'No date',
-            summary: data.summary || '',
-            pinned: data.pinned || false,
-          } as Post;
+            return {
+              ...data,
+              slug: slug,
+              content: content,
+              title: data.title || 'Untitled',
+              date: data.date || 'No date',
+              summary: data.summary || '',
+              pinned: data.pinned || false,
+            } as Post;
+          })
+        );
+
+        // Sort posts: pinned first, then by date
+        const sortedPosts = posts.sort((a, b) => {
+          if (a.pinned && !b.pinned) {
+            return -1;
+          }
+          if (!a.pinned && b.pinned) {
+            return 1;
+          }
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
         });
 
-        loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-        setPosts(loadedPosts);
+        setPosts(sortedPosts);
       } catch (error) {
         console.error('Error loading blog posts:', error);
       }
@@ -63,52 +75,20 @@ function BlogListPage() {
     loadPosts();
   }, []);
 
-  const pinnedPost = posts.find(post => post.pinned);
-  // Ensure regularPosts filters out the same pinned post object
-  const regularPosts = posts.filter(post => post !== pinnedPost);
-
   return (
     <div className="bg-white text-gray-900 py-8"> {/* Removed min-h */}
-      <div className="container mx-auto px-4">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">博客文章</h1>
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-center mb-2 text-gray-800">博客文章</h1>
+        <p className="text-center text-sm text-gray-500 mb-12">
+          (未来将支持按分类与标签筛选文章，敬请期待！)
+        </p>
         
-        {/* 置顶文章 */} 
-        {pinnedPost && (
-          <article className="mb-12 p-6 bg-blue-50 rounded-lg border border-blue-200 shadow-sm">
-            <div className="flex justify-between items-start mb-2">
-              <h2 className="text-2xl font-semibold">
-                <Link
-                  to={`/blog/${pinnedPost.slug}`}
-                  className="text-blue-700 hover:text-blue-900 transition-colors"
-                >
-                  {pinnedPost.title}
-                </Link>
-              </h2>
-              <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
-                置顶
-              </span>
-            </div>
-            <time className="text-sm text-gray-500 mb-3 block">
-              {pinnedPost.date}
-            </time>
-            <p className="text-gray-700 mb-4 line-clamp-3">
-              {pinnedPost.summary}
-            </p>
-            <Link
-              to={`/blog/${pinnedPost.slug}`}
-              className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center"
-            >
-              阅读全文 →
-            </Link>
-          </article>
-        )}
-
-        {/* 文章列表 */} 
+        {/* 文章列表 - now maps directly over sorted 'posts' array */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {regularPosts.map(post => (
+          {posts.map(post => (
             <article 
-              key={post.slug} /* Use slug as key */
-              className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              key={post.slug}
+              className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
             >
               <div className="p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-2">
